@@ -1,4 +1,4 @@
-ef calculate_structure_sum(*obj_, sum_ = 0):
+def calculate_structure_sum(*obj_, sum_ = 0):
 
     n_ = 0
 
@@ -13,9 +13,11 @@ ef calculate_structure_sum(*obj_, sum_ = 0):
         elif isinstance(i, str):
             sum_+= len(i)
             print('sum str', sum_)
-
+        elif isinstance(i, dict):
+            i = list(i.items())
+            print(i)
         else:
-            sum_+= len(i)
+
             sum_= calculate_structure_sum(*i, sum_)
 
 
@@ -25,5 +27,5 @@ ef calculate_structure_sum(*obj_, sum_ = 0):
     return sum_
 
 
-obj_ = ['ab', 2, [1,[2,1]]]
+obj_ = [1,{"d":2,'c':3}]
 print(calculate_structure_sum(obj_))
