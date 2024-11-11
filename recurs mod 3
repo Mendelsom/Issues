@@ -1,5 +1,5 @@
-def calculate_structure_sum(*obj_, sum_1 = 0):
-    sum_ = 0
+ef calculate_structure_sum(*obj_, sum_ = 0):
+
     n_ = 0
 
     for i in obj_:
@@ -13,19 +13,17 @@ def calculate_structure_sum(*obj_, sum_1 = 0):
         elif isinstance(i, str):
             sum_+= len(i)
             print('sum str', sum_)
-        elif isinstance(i, set):
-            i = list(i)
-            print('set',i)
-
-            calculate_structure_sum(*i, sum_1 )
 
         else:
             sum_+= len(i)
-            calculate_structure_sum(*i, sum_1)
+            sum_= calculate_structure_sum(*i, sum_)
 
-    sum_1 += sum_
+
     print(sum_, 'sum_', n_, 'n')
-    result = sum_1 + sum_
-    print(result)
-    return result
 
+
+    return sum_
+
+
+obj_ = ['ab', 2, [1,[2,1]]]
+print(calculate_structure_sum(obj_))
