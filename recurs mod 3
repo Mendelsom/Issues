@@ -16,6 +16,7 @@ def calculate_structure_sum(*obj_, sum_ = 0):
         elif isinstance(i, dict):
             i = list(i.items())
             print(i)
+            sum_ = calculate_structure_sum(*i, sum_)
         else:
 
             sum_= calculate_structure_sum(*i, sum_)
@@ -27,5 +28,5 @@ def calculate_structure_sum(*obj_, sum_ = 0):
     return sum_
 
 
-obj_ = [1,{"d":2,'c':3}]
+obj_ = [1,{"d":2,'c':3}, [1,2]]
 print(calculate_structure_sum(obj_))
